@@ -20,3 +20,7 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::prefix('post')->group(function() {
+    Route::get('/index','App\Http\Controllers\PostController@index')->name('posts.index');
+});
