@@ -22,5 +22,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::prefix('post')->group(function() {
-    Route::get('/index','App\Http\Controllers\PostController@index')->name('posts.index');
+    Route::get('/index','App\Http\Controllers\Post\PostController@index')->name('posts.index');
 });
