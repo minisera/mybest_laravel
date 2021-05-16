@@ -2,18 +2,24 @@
 
 namespace App\Http\Controllers\Post;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Post;
 
+
 class PostController extends Controller
 {
     public function index(Request $request)
     {
-
-        $users = User::all();
-        return view('posts.index')->with(['users' => $users]);
+        $user = Auth::user();
+        $posts = Post::all();
+                
+        return view('posts.index')->with([
+            'posts' => $posts,
+            'user'  => $user,
+            ]);
     }
 
     public function store(Request $request,Post $post)
