@@ -25,3 +25,5 @@ Route::prefix('post')->group(function() {
     Route::get('/index','App\Http\Controllers\Post\PostController@index')->name('posts.index');
     Route::post('/store','App\Http\Controllers\Post\PostController@store')->name('posts.store');
 });
+
+Route::resource('article', 'App\Http\Controllers\ArticleController');
