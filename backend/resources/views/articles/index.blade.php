@@ -1,8 +1,12 @@
 
-Article index
+ArticleIndex
 <p>{{$user->name}}</p>
 
-@foreach ($articles as $article)
-  <p>{{$article->title}}</p>
-  <p>{{$article->text}}</p>
-@endforeach
+@if (isset($articles))
+  @foreach ($articles as $article)
+    <p>{{$article->title}}</p>
+    <p>{{$article->text}}</p>
+  @endforeach
+@endif
+
+<a href="{{route('article.create')}}">article新規作成画面へ</a>
