@@ -11,18 +11,18 @@ class ArticleController extends Controller
     public function index()
     {
         $user = Auth::user();
+        $articles = $user->articles;
         return view('articles.index')->with([
-            'user'  => $user
+            'user'  => $user,
+            'articles' => $articles
         ]);
     }
 
     public function create()
     {
         $user = Auth::user();
-        $articles = null;
         return view('articles.create')->with([
-            'user'  => $user,
-            'articles' => $articles
+            'user'  => $user
         ]);
     }
 
@@ -32,6 +32,6 @@ class ArticleController extends Controller
         $article->user_id = $request->user()->id;
         $article->save();
 
-        return redirect()->route('articles.index');
+        return redirect()->route('article.index');
     }
 }

@@ -17,7 +17,6 @@ class PostController extends Controller
         $user = Auth::user();
         $posts = $user->posts; 
         $articles = Article::all();
-    
                 
         return view('posts.index')->with([
             'posts' => $posts,
