@@ -9,4 +9,4 @@ ArticleIndex
   @endforeach
 @endif
 
-<a href="{{route('article.create')}}">article新規作成画面へ</a>
+<a href="{{route('articles.create')}}">article新規作成画面へ</a>

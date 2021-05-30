@@ -23,7 +23,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::prefix('post')->group(function() {
     Route::get('/','App\Http\Controllers\Post\PostController@index')->name('posts.index');
+    Route::get('/create','App\Http\Controllers\Post\PostController@create')->name('posts.create');
     Route::post('/store','App\Http\Controllers\Post\PostController@store')->name('posts.store');
 });
 
-Route::resource('article', 'App\Http\Controllers\ArticleController');
+Route::resource('articles', 'App\Http\Controllers\ArticleController');
