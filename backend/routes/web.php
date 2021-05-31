@@ -25,6 +25,7 @@ Route::prefix('post')->group(function() {
     Route::get('/','App\Http\Controllers\Post\PostController@index')->name('posts.index');
     Route::get('/create','App\Http\Controllers\Post\PostController@create')->name('posts.create');
     Route::post('/store','App\Http\Controllers\Post\PostController@store')->name('posts.store');
+    Route::post('/session','App\Http\Controllers\ArticleController@index')->name('posts.session');
 });
 
 Route::resource('articles', 'App\Http\Controllers\ArticleController');

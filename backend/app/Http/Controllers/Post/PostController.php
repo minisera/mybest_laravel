@@ -25,7 +25,6 @@ class PostController extends Controller
 
     public function store(Request $request,Post $post)
     {   
-        //articlesと紐付けがあればarticle_idをつけたい
         $post->fill($request->all());
         $post->user_id = $request->user()->id;
         $post->article_id = $request->input('article_id');

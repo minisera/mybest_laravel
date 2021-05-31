@@ -8,8 +8,12 @@ use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        session([ 
+            "title" => $request->input('title'),
+            "text" => $request->input('text'),
+            "article_id" => $request->input('article_id')]);
         $user = Auth::user();
         $articles = $user->articles;
         return view('articles.index')->with([
