@@ -36,11 +36,13 @@ class PostController extends Controller
 
     public function create()
     {
+        $session = session()->all();
         $user = Auth::user();
         $articles = $user->articles->pluck('text','id');
         return view('posts.create')->with([
             'user' => $user,
-            'articles' => $articles
+            'articles' => $articles,
+            'session' => $session
         ]);
     }
 }

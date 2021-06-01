@@ -14,11 +14,13 @@ class ArticleController extends Controller
             "title" => $request->input('title'),
             "text" => $request->input('text'),
             "article_id" => $request->input('article_id')]);
+        $session = $request->session();
         $user = Auth::user();
         $articles = $user->articles;
         return view('articles.index')->with([
             'user'  => $user,
-            'articles' => $articles
+            'articles' => $articles,
+            'session' => $session
         ]);
     }
 
@@ -36,6 +38,6 @@ class ArticleController extends Controller
         $article->user_id = $request->user()->id;
         $article->save();
 
-        return redirect()->route('articles.index');
+        return redirect()->route('posts.create');
     }
 }

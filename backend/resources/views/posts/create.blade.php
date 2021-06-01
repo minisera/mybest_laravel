@@ -2,11 +2,11 @@ PostCreate
 <p>{{$user->name}}</p>
 {{ Form::open(['route' => 'posts.session', 'method' => 'post']) }}
   <div>タイトル</div>
-  {{ Form::text('title')}}
+  {{ Form::text('title',$session['title'])}}
   <div>内容</div>
-  {{ Form::text('text')}}
+  {{ Form::text('text',$session['text'])}}
   <div>添付article</div>
-  {{ Form::select('article_id',$articles)}}
+  {{ Form::select('article_id',$articles,$session['article_id'])}}
   <a href="{{route('articles.create')}}">article新規作成画面へ</a>
   <pre>
     {{ Form::submit('登録')}}
