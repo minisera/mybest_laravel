@@ -14,6 +14,7 @@ class PostController extends Controller
 {
     public function index(Request $request)
     {
+        $request->session()->flush();
         $user = Auth::user();
         $posts = $user->posts; 
                 
@@ -29,8 +30,9 @@ class PostController extends Controller
         $post->user_id = $request->user()->id;
         $post->article_id = $request->input('article_id');
         $post->save();
-        
 
+        $request->session()->flush();
+        
         return redirect()->route('posts.index');
     }
 
