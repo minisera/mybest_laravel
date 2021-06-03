@@ -16,6 +16,7 @@ class Post
      */
     public function handle(Request $request, Closure $next)
     {
+        dd($request);
         if ($request->session()->get('url') == url()->current()) {
             return $next($request);
         }

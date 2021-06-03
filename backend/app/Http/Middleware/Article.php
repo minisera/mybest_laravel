@@ -16,6 +16,11 @@ class Article
      */
     public function handle(Request $request, Closure $next)
     {
+        if ($request->session()->get('url') == "http://localhost/posts/create") {
+            return redirect()->route('posts.create');
+        }
+
         return $next($request);
+
     }
 }
