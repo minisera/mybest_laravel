@@ -22,7 +22,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::prefix('post')->group(function() {
-    Route::get('/','App\Http\Controllers\Post\PostController@index')->name('posts.index');
+    Route::get('/','App\Http\Controllers\Post\PostController@index')->name('posts.index')->middleware('post.redirect');
     Route::get('/create','App\Http\Controllers\Post\PostController@create')->name('posts.create');
     Route::post('/store','App\Http\Controllers\Post\PostController@store')->name('posts.store');
     Route::post('/session','App\Http\Controllers\ArticleController@index')->name('posts.session');
