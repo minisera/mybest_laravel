@@ -9,11 +9,13 @@
                         <x-jet-application-mark class="block h-9 w-auto" />
                     </a>
                 </div>
-
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{route('posts.index')}}" :active="request()->routeIs('dashboard')">
+                        記事を投稿する
                     </x-jet-nav-link>
                 </div>
             </div>
@@ -89,7 +91,7 @@
                                 </span>
                             @endif
                         </x-slot>
-
+            
                         <x-slot name="content">
                             <!-- Account Management -->
                             <div class="block px-4 py-2 text-xs text-gray-400">
