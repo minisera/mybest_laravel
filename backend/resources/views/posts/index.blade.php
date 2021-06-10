@@ -1,39 +1,36 @@
 <!doctype html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>adminLTE test</title>
-    <!-- for responsive -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- bootstrap -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <!-- font awesome -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <!-- ionicons -->
-    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
-    <!-- adminLTE style -->
-    <link href="dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
-    <link href="dist/css/skins/skin-blue.min.css" rel="stylesheet" type="text/css" />
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ 
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+ 
+<title>Hello, world!</title>
 </head>
 <body>
-  <x-app-layout>
-    PostIndex
-    <p >{{$user->name}}</p>
-    
-    @foreach ($posts as $post)
-      <p>{{$post->title}}</p>
-      <p>{{$post->text}}</p>
-    @endforeach
-    
-    <a href="{{route('posts.create')}}">post新規作成画面へ</a>
+<h1>Hello, world!</h1>
+ 
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<x-app-layout>
   
-  </x-app-layout>
-
-    <!-- JS -->
-    <!-- jquery -->
-    <script src="plugins/jQuery/jQuery-2.1.4.min.js" type="text/javascript"></script>
-    <!-- bootstrap -->
-    <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-    <!-- adminLTE -->
-    <script src="dist/js/app.min.js" type="text/javascript"></script>
+  <div class="logo">記事一覧</div>
+  <p >{{$user->name}}</p>
+  <button type="button" class="btn btn-primary">Blue</button>
+  @foreach ($posts as $post)
+  <p>{{$post->title}}</p>
+  <p>{{$post->text}}</p>
+  @endforeach
+  
+  <a href="{{route('posts.create')}}">post新規作成画面へ</a>
+  
+</x-app-layout>
 </body>
+
 </html>
